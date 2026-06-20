@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Father's Day - Radheshyam Singh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;600;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 🌌 Deep Space Core Canvas & Background */
+        body {
+            background: #03030c;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px;
+        }
+
+        #bgCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* 📺 Container Core Matrix */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* 🧊 3D Matrix Screen Sections */
+        .section {
+            display: none;
+            width: 100%;
+            max-height: 95vh;
+            opacity: 0;
+            transform: translateZ(-150px) rotateY(15deg) scale(0.85);
+            transition: all 1s cubic-bezier(0. flame, 1.2, 0.3, 1);
+        }
+        .active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transform: translateZ(0px) rotateY(0deg) scale(1);
+        }
+
+        /* 🔮 Liquid Holographic Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 40px;
+            padding: 45px 35px;
+            width: 100%;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), 
+                        inset 0 0 40px rgba(255, 255, 255, 0.05),
+                        0 0 50px rgba(0, 240, 255, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: liquidFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes liquidFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(0.5deg); }
+        }
+
+        /* ⚡ Liquid Neon Typography */
+        h1.neon-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3.8rem, 10vw, 7rem);
+            background: linear-gradient(90deg, #ff007f, #00f0ff, #ffea00, #ff007f);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: chromaShift 5s linear infinite;
+            filter: drop-shadow(0 0 25px rgba(0,240,255,0.6));
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        @keyframes chromaShift {
+            to { background-position: 300% center; }
+        }
+
+        .name-title {
+            font-size: clamp(2.6rem, 7vw, 5.2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background: linear-gradient(to right, #00f0ff, #ffffff, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.8));
+            margin-bottom: 25px;
+        }
+
+        p.quote {
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+            line-height: 1.6;
+            color: #f0f0f5;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+        }
+
+        /* 🚨 Next-Gen Laser Scanning Button */
+        .laser-btn {
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00f0ff;
+            padding: 22px 65px;
+            color: #00f0ff;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0,240,255,0.2);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 25px;
+        }
+        /* Laser line scan layer */
+        .laser-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.8), transparent);
+            animation: laserScan 2.5s linear infinite;
+        }
+
+        @keyframes laserScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .laser-btn:hover {
+            background: #00f0ff;
+            color: #000;
+            box-shadow: 0 0 60px #00f0ff, 0 0 30px #ff007f;
+            transform: scale(1.08) translateY(-3px);
+        }
+
+        /* ❤️ Extreme Pulsing Interactive Core Heart */
+        .heart {
+            font-size: clamp(3.8rem, 9vw, 5.8rem);
+            cursor: pointer;
+            animation: extremePulse 0.8s infinite alternate;
+            margin-top: 20px;
+            display: inline-block;
+            filter: drop-shadow(0 0 30px #ff0055);
+            transition: transform 0.3s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .heart:hover {
+            transform: scale(1.35) rotate(-8deg);
+            filter: drop-shadow(0 0 45px #00f0ff);
+        }
+
+        @keyframes extremePulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 15px #ff0055); }
+            100% { transform: scale(1.22); filter: drop-shadow(0 0 40px #ff007f); }
+        }
+
+        /* 🎞️ Infinite Double Marquee Engine */
+        .marquee-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 15px 0;
+            overflow: hidden;
+        }
+        
+        .marquee {
+            display: flex;
+            gap: 18px;
+            width: max-content;
+        }
+        .marquee.right { animation: scrollRight 22s linear infinite; }
+        .marquee.left { animation: scrollLeft 25s linear infinite; }
+
+        .marquee img {
+            width: clamp(140px, 25vw, 210px);
+            height: clamp(180px, 33vw, 270px);
+            object-fit: cover;
+            border-radius: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .marquee img:hover {
+            transform: scale(1.15) translateY(-12px) rotate(2deg);
+            border-color: #00f0ff;
+            box-shadow: 0 25px 50px rgba(0, 240, 255, 0.7);
+        }
+
+        @keyframes scrollRight { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollLeft { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+        /* 📱 Page 3 Split Architecture Layout */
+        .split-page {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            text-align: left;
+            width: 100%;
+        }
+        .text-content { flex: 1.4; }
+        
+        .vertical-reel {
+            flex: 1;
+            height: clamp(290px, 52vh, 430px);
+            min-width: 190px;
+            overflow: hidden;
+            border-radius: 30px;
+            border: 4px solid #00f0ff;
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
+            position: relative;
+            background: #020205;
+        }
+        .vertical-reel::before, .vertical-reel::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 12px; 
+            background: url('data:image/svg+xml;utf8,<svg width="12" height="24" xmlns="http://www.w3.org/2000/svg"><rect width="6" height="12" fill="cyan" x="3" y="6" rx="1"/></svg>') repeat-y; 
+            z-index: 5; opacity: 0.8;
+        }
+        .vertical-reel::before { left: 0; }
+        .vertical-reel::after { right: 0; }
+
+        .vertical-track {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 15px;
+            animation: scrollUp 13s linear infinite;
+        }
+        .vertical-track img {
+            width: 100%;
+            height: clamp(170px, 26vh, 230px);
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+
+        /* 🎈 Neon 3D Floating Balloons */
+        .balloon {
+            position: absolute;
+            bottom: -120px;
+            width: clamp(36px, 6vw, 50px);
+            height: clamp(48px, 8vw, 66px);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: floatUp ease-in forwards;
+            opacity: 0.95;
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5), 0 0 25px rgba(255,255,255,0.8);
+            z-index: 20;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-125vh) rotate(35deg) scale(1.4); opacity: 0; }
+        }
+
+        /* 📱 RESPONSIVE ADAPTABILITY ENGINE (Perfect Fit for Phones) */
+        @media (max-width: 768px) {
+            .split-page {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            .text-content h1 { text-align: center !important; }
+            .vertical-reel { width: 100%; height: 210px; }
+            .glass-card { padding: 30px 20px; max-height: 88vh; overflow-y: auto; }
+            
+            .vertical-track { flex-direction: row; animation: scrollLeftTrack 11s linear infinite; width: max-content; padding: 12px 0; }
+            .vertical-track img { width: 155px; height: 185px; }
+            .vertical-reel::before, .vertical-reel::after {
+                width: 100%; height: 12px; background: url('data:image/svg+xml;utf8,<svg width="24" height="12" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="6" fill="cyan" x="6" y="3" rx="1"/></svg>') repeat-x;
+            }
+            .vertical-reel::before { top: 0; bottom: auto; left: 0; }
+            .vertical-reel::after { bottom: 0; top: auto; left: 0; }
+            
+            @keyframes scrollLeftTrack { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <audio id="audio1" loop><source src="song1.mp3" type="audio/mpeg"></audio>
+    <audio id="audio2" loop><source src="song2.mp3" type="audio/mpeg"></audio>
+
+    <div class="container">
+        
+        <div id="page1" class="section active">
+            <div class="glass-card" style="border-color: #00f0ff; box-shadow: 0 0 60px rgba(0, 240, 255, 0.25);">
+                <h1 class="neon-text">Happy Father's Day!</h1>
+                <p class="quote" style="color: #00f0ff; letter-spacing: 2px; font-weight: 600;">Initiating the ultimate digital tribute...</p>
+                <button class="laser-btn" onclick="triggerWarpDrive()">Launch Experience ⚡</button>
+            </div>
+        </div>
+
+        <div id="page2" class="section">
+            <h1 class="neon-text" style="font-size: clamp(2.6rem, 6vw, 4.2rem);">Happy Father's Day</h1>
+            <div class="name-title">Radheshyam Singh</div>
+            
+            <div class="marquee-wrapper">
+                <div class="marquee right">
+                    <img src="photo1.jpg" alt="pic"><img src="photo2.jpg" alt="pic"><img src="photo3.jpg" alt="pic"><img src="photo4.jpg" alt="pic"><img src="photo5.jpg" alt="pic">
+                    <img src="photo1.jpg" alt="pic"><img src="photo2.jpg" alt="pic"><img src="photo3.jpg" alt="pic"><img src="photo4.jpg" alt="pic"><img src="photo5.jpg" alt="pic">
+                </div>
+                <div class="marquee left">
+                    <img src="photo6.jpg" alt="pic" onerror="this.src='photo1.jpg'"><img src="photo7.jpg" alt="pic" onerror="this.src='photo2.jpg'"><img src="photo8.jpg" alt="pic" onerror="this.src='photo3.jpg'"><img src="photo9.jpg" alt="pic" onerror="this.src='photo4.jpg'"><img src="photo10.jpg" alt="pic" onerror="this.src='photo5.jpg'">
+                    <img src="photo6.jpg" alt="pic" onerror="this.src='photo1.jpg'"><img src="photo7.jpg" alt="pic" onerror="this.src='photo2.jpg'"><img src="photo8.jpg" alt="pic" onerror="this.src='photo3.jpg'"><img src="photo9.jpg" alt="pic" onerror="this.src='photo4.jpg'"><img src="photo10.jpg" alt="pic" onerror="this.src='photo5.jpg'">
+                </div>
+            </div>
+
+            <p style="margin-top: 15px; font-size: 1.1rem; color: #ff007f; letter-spacing: 2px; font-weight: bold;">CLICK THE BURSTING HEART 👇</p>
+            <div class="heart" onclick="switchPage('page2', 'page3')">❤️</div>
+        </div>
+
+        <div id="page3" class="section">
+            <div class="glass-card">
+                <div class="split-page">
+                    <div class="text-content">
+                        <h1 class="neon-text" style="font-size: clamp(2.6rem, 5vw, 4.2rem); text-align: left; margin-bottom: 15px;">Mere Hero...</h1>
+                        <p class="quote">Aapne hamesha meri har khwahish puri ki hai.</p>
+                        <p class="quote">Bina bataye meri har problem solve ki hai.</p>
+                        <p class="quote" style="color: #00f0ff; font-weight: 900;">You are not just my father, you are my greatest strength. Love you Papa!</p>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <div class="heart" onclick="switchPage('page3', 'page4')">💖</div>
+                        </div>
+                    </div>
+                    
+                    <div class="vertical-reel">
+                        <div class="vertical-track">
+                            <img src="photo1.jpg" alt="p"><img src="photo3.jpg" alt="p"><img src="photo5.jpg" alt="p"><img src="photo2.jpg" alt="p">
+                            <img src="photo1.jpg" alt="p"><img src="photo3.jpg" alt="p"><img src="photo5.jpg" alt="p"><img src="photo2.jpg" alt="p">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page4" class="section">
+            <div class="glass-card" style="border-color: #ff007f; box-shadow: 0 0 60px rgba(255, 0, 127, 0.4); padding: 65px 20px;">
+                <h1 class="neon-text" style="font-size: clamp(4.6rem, 14vw, 9rem); text-shadow: 0 0 35px #ff007f;">Thank You</h1>
+                <div class="name-title" style="font-size: clamp(2rem, 6vw, 3.6rem); color: #fff; background: none; -webkit-text-fill-color: white; margin-bottom: 25px;">For Everything.</div>
+                <div class="heart" style="cursor: default; animation: none; transform: scale(1.35); filter: drop-shadow(0 0 25px #ff0055);">👑👨‍👧‍👦🌟</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const audio1 = document.getElementById('audio1');
+        const audio2 = document.getElementById('audio2');
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let stars = [];
+        let fireworks = [];
+        let warpSpeed = false;
+        let warpFactor = 1;
+        let isFinaleActive = false;
+
+        // Dynamic Resize Canvas Engine
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Initialize Starfield Matrix
+        for(let i=0; i<120; i++) {
+            stars.push({
+                x: Math.random() * canvas.width - canvas.width/2,
+                y: Math.random() * canvas.height - canvas.height/2,
+                z: Math.random() * canvas.width,
+                color: ['#00f0ff', '#ff007f', '#ffffff', '#ffea00'][Math.floor(Math.random()*4)]
+            });
+        }
+
+        // 🚀 Dynamic Math Particle Loop
+        function animateBackground() {
+            ctx.fillStyle = `rgba(3, 3, 12, ${warpSpeed ? 0.18 : 0.4})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+
+            // 1. Starfield/Warp Render
+            if(!isFinaleActive) {
+                stars.forEach(s => {
+                    s.z -= warpSpeed ? (25 * warpFactor) : 1.5;
+                    if(s.z <= 0) s.z = canvas.width;
+
+                    const k = 128 / s.z;
+                    const px = s.x * k + cx;
+                    const py = s.y * k + cy;
+
+                    if(px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
+                        const size = (1 - s.z / canvas.width) * (warpSpeed ? 8 : 4);
+                        ctx.beginPath();
+                        ctx.fillStyle = s.color;
+                        
+                        if(warpSpeed) {
+                            // Draw speed lines during warp drive
+                            const oldX = s.x * (128 / (s.z + 40)) + cx;
+                            const oldY = s.y * (128 / (s.z + 40)) + cy;
+                            ctx.strokeStyle = s.color;
+                            ctx.lineWidth = size/2;
+                            ctx.moveTo(px, py);
+                            ctx.lineTo(oldX, oldY);
+                            ctx.stroke();
+                        } else {
+                            ctx.arc(px, py, size, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    }
+                });
+            } else {
+                // 2. High Performance Fireworks/Burst Engine for Last Page
+                fireworks.forEach((f, idx) => {
+                    f.x += f.vx;
+                    f.y += f.vy;
+                    f.vy += 0.04; // Gravity simulation
+                    f.alpha -= 0.008;
+
+                    ctx.save();
+                    ctx.globalAlpha = f.alpha;
+                    ctx.fillStyle = f.color;
+                    ctx.font = `${f.size}px sans-serif`;
+                    ctx.fillText(f.char, f.x, f.y);
+                    ctx.restore();
+
+                    if(f.alpha <= 0) fireworks.splice(idx, 1);
+                });
+            }
+
+            requestAnimationFrame(animateBackground);
+        }
+        requestAnimationFrame(animateBackground);
+
+        // ⚡ Warp Drive Animation Handler
+        function triggerWarpDrive() {
+            warpSpeed = true;
+            // Linearly accelerate warp simulation speed
+            let accelInterval = setInterval(() => { warpFactor += 0.4; }, 100);
+
+            let p1 = document.getElementById('page1');
+            p1.style.transform = 'translateZ(-500px) rotateX(-45deg)';
+            p1.style.opacity = '0';
+            
+            setTimeout(() => {
+                clearInterval(accelInterval);
+                p1.classList.remove('active');
+                
+                audio1.play().catch(e => console.log("Audio waiting..."));
+                createBalloons();
+
+                warpSpeed = false;
+                warpFactor = 1;
+                document.getElementById('page2').classList.add('active');
+            }, 1800);
+        }
+
+        // 🔄 Switch Deck Sections Smoothly
+        function switchPage(fromId, toId) {
+            let fromEl = document.getElementById(fromId);
+            fromEl.style.transform = 'translateZ(-300px) scale(0.8)';
+            fromEl.style.opacity = '0';
+            
+            setTimeout(() => {
+                fromEl.classList.remove('active');
+                fromEl.style.transform = '';
+                fromEl.style.opacity = '';
+
+                document.getElementById(toId).classList.add('active');
+                
+                if(toId === 'page3') {
+                    audio1.pause();
+                    audio2.play().catch(e => console.log("Audio 2 active..."));
+                }
+                
+                if(toId === 'page4') {
+                    isFinaleActive = true;
+                    // Continuously generate vector particle explosions
+                    setInterval(generateExplosionBurst, 350);
+                }
+            }, 800); 
+        }
+
+        // 🎈 Generate Vibrant 3D Balloons
+        function createBalloons() {
+            const colors = ['#ff007f', '#00f0ff', '#ffea00', '#32ff7e', '#cd84f1', '#ff9ff3'];
+            const isMobile = window.innerWidth < 768;
+            const balloonCount = isMobile ? 22 : 45; 
+
+            for (let i = 0; i < balloonCount; i++) {
+                let balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.animationDuration = (Math.random() * 3 + 4) + 's'; 
+                balloon.style.animationDelay = Math.random() * 1.2 + 's';
+                document.body.appendChild(balloon);
+                setTimeout(() => { balloon.remove(); }, 8000);
+            }
+        }
+
+        // 🎉 Vector Math Particle Explosion Engine
+        function generateExplosionBurst() {
+            const chars = ['❤️', '💖', '⭐', '✨', '🎈', '👑'];
+            const colors = ['#ff007f', '#00f0ff', '#ffea00', '#ff0055', '#ffffff'];
+            const originX = canvas.width / 2;
+            const originY = canvas.height / 2;
+            
+            for(let i=0; i<15; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 6 + 2;
+                fireworks.push({
+                    x: originX,
+                    y: originY,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    alpha: 1,
+                    size: Math.random() * 20 + 15,
+                    char: chars[Math.floor(Math.random() * chars.length)],
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+    </script>
+</body>
+</html>
